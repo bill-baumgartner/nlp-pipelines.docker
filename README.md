@@ -7,7 +7,7 @@ Configuration for a Docker image to run nlp-pipelines over corpora and catalog t
 All data pertaining to NLP-pipeline runs, including text corpus files and serialized annotator output, will be stored in a dedicated Docker volume that should be periodically backed up to ensure long-term data preservation. Create a Docker volume for this purpose with the following command:
 
 ```bash
-docker create -v /nlp-pipelines.data --name nlp-pipelines.data ubuntu:latest
+docker create -v /nlp_data --name nlp_data ubuntu:latest
 ```
 
 # Corpus Maintenance
@@ -19,7 +19,7 @@ __Initial consumption__ of the PMC_OA corpus makes use of the bulk download file
 NOTE about number of processors (should be an input parameter)
 
 ```bash
-docker run --rm --volumes-from nlp-pipelines.data billbaumgartner/nlp-pipelines:0.5.4 ./init-pmcoa-corpus.sh
+docker run --rm --volumes-from nlp_data billbaumgartner/nlp-pipelines:0.5.4 ./init-pmcoa-corpus.sh
 ```
 
 __Incremental updates__ of the PMC_OA corpus can be performed on a periodic basis after the initial bulk load. Incremental updates are achieved via the [PMC-OAI Service](https://www.ncbi.nlm.nih.gov/pmc/tools/oai/). As documented on their website, high-volume requests (classified as >100 requests at a time) should be run outside of the PMC system's peak hours (Monday to Friday, 5:00 AM to 9:00 PM, U.S. Eastern time).

@@ -4,7 +4,7 @@
 # script, the contents of the four downloaded tarballs can be found as
 # compressed (.gz) files in subdirectories under
 # $LIBRARY_DIR/pmc_bulk.
-WORK_DIR=/nlp-pipelines_data/pmc_bulk
+WORK_DIR=/nlp_data/pmc_bulk
 
 # wget the bulk PMC OA files using an automated retry-on-failure flag
 for segment in "A-B" "C-H" "I-N" "O-Z"; do
