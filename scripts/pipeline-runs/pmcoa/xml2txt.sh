@@ -10,4 +10,4 @@ mkdir -p "$PIPELINE_WORK_DIR"
 
 mvn -f /nlp-pipelines.git/nlp-pipelines-runner/pom.xml exec:java \
 -Dexec.mainClass="edu.ucdenver.ccp.nlp.pipelines.runner.impl.PmcNxml2TxtPipeline" \
--Dexec.args="/nlp_data/catalog $PIPELINE_WORK_DIR"
+-Dexec.args="/nlp_data/catalog $PIPELINE_WORK_DIR $1"
