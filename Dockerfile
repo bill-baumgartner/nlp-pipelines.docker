@@ -15,17 +15,16 @@ RUN git clone --branch dev.uima_as_runner https://github.com/UCDenver-ccp/ccp-nl
 
 #ENV CATALOG_DIR=/nlp-pipelines_data/catalog LIBRARY_DIR=/nlp-pipelines_data/library
 
-# TODO: install UIMA_AS distro & Set UIMA_HOME env variable
-
 RUN wget http://www.gtlib.gatech.edu/pub/apache//uima//uima-as-2.9.0/uima-as-2.9.0-bin.tar.gz && \
     wget http://www.apache.org/dist/uima//uima-as-2.9.0/uima-as-2.9.0-bin.tar.gz.md5 && \
     md5sum -c *.md5 && \
     tar -xzvf uima-as-2.9.0-bin.tar.gz
 
-#ENV UIMA_HOME=/uima-as-2.9.0-bin
+ENV UIMA_HOME /apache-uima-as-2.9.0
 
 COPY scripts/ /scripts/
 
-RUN chmod -R 755 /scripts
+RUN chmod -R 755 /scripts && \
+    mkdir /activemq-base
 
-CMD start active mq...
+CMD cd /activemq-base && $UIMA_HOME/bin/startBroker.sh
