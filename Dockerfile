@@ -27,4 +27,6 @@ COPY scripts/ /scripts/
 RUN chmod -R 755 /scripts && \
     mkdir /activemq-base
 
+EXPOSE 61616
+
 CMD cd /activemq-base && $UIMA_HOME/bin/startBroker.sh
