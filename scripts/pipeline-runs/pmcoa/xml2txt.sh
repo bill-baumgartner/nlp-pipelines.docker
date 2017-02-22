@@ -8,7 +8,7 @@
 # arg2 = number of documents to process (<0 = process all)
 # arg3 = CAS pool size
 #
-export MAVEN_OPTS="-Xmx10G"
+export MAVEN_OPTS="-Xmx10G -Duima.jmx.monitor.formatter=org.apache.uima.aae.jmx.monitor.BasicUimaJmxMonitorListener -Dcom.sun.management.jmxremote.port=8009 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
 
 PIPELINE_WORK_DIR=/nlp_data/pipeline_work/pmcoa/xml2txt
 mkdir -p "$PIPELINE_WORK_DIR"
