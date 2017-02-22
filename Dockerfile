@@ -5,7 +5,8 @@ RUN apt-get update && apt-get install -y \
     maven \
     git \
     unzip \
-    wget
+    wget \
+    emacs
 
 RUN git clone --branch dev.uima_2.9.0 https://github.com/UCDenver-ccp/ccp-nlp.git ./ccp-nlp.git && \
     mvn clean install -f ./ccp-nlp.git/pom.xml
